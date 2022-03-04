@@ -28,6 +28,8 @@ func main(){  // main函数，是程序执行的入口
 }
 ```
 
+------
+
 ## go build
 
 `go build`表示将源代码编译成可执行文件。
@@ -61,6 +63,8 @@ Hello World!
 go build -o heiheihei.exe
 ```
 
+------
+
 ## go run
 
 `go run main.go`也可以执行程序，该命令本质上也是先编译再执行。
@@ -69,9 +73,13 @@ go build -o heiheihei.exe
 go run main.go
 ```
 
+------
+
 ## go install
 
 `go install`表示安装的意思，它先编译源代码得到可执行文件，然后将可执行文件移动到`GOPATH`的bin目录下。因为我们的环境变量中配置了`GOPATH`下的bin目录，所以我们就可以在任意地方直接执行可执行文件了。
+
+------
 
 ## 跨平台编译
 
@@ -159,7 +167,9 @@ Linux平台下编译Windows平台64位可执行程序：
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build
 ```
 
-# 变量和常量
+------
+
+# [变量和常量](https://github.com/letengzz/JC-GoPro/tree/main/02Variables_Constants)
 
 ## 标识符与关键字
 
@@ -183,9 +193,9 @@ Go语言中有25个关键字：
 
 ![image-20220213195948979](https://cdn.jsdelivr.net/gh/letengzz/Two-C/img/Go/%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F/%E4%BF%9D%E7%95%99%E5%AD%97.png)
 
-## 变量 
+## [变量](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/Variable/Variable.go) 
 
-[变量(`Variable`)](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/Variable/Variable.go)的功能是存储数据。不同的变量保存的数据类型可能会不一样。经过半个多世纪的发展，编程语言已经基本形成了一套固定的类型，常见变量的数据类型有：[整型](#整型)、[浮点型](#浮点型)、[布尔型](#布尔型)等。
+**变量**(`Variable`)的功能是存储数据。不同的变量保存的数据类型可能会不一样。经过半个多世纪的发展，编程语言已经基本形成了一套固定的类型，常见变量的数据类型有：[整型](#整型)、[浮点型](#浮点型)、[布尔型](#布尔型)等。
 
 Go语言中的每一个变量都有自己的类型，并且变量必须经过声明才能开始使用。
 
@@ -311,11 +321,9 @@ func main() {
 }
 ```
 
-**上述有关变量的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/Variable/Variable.go)
+## [常量](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/Constant/Constant.go)
 
-## 常量
-
-[常量](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/Constant/Constant.go)是恒定不变的值，多用于定义程序运行期间不会改变的那些值。
+**常量**是恒定不变的值，多用于定义程序运行期间不会改变的那些值。
 
 常量的声明和变量声明非常类似，只是把`var`换成了`const`，常量在定义的时候必须赋值。
 
@@ -347,11 +355,9 @@ const (
 )
 ```
 
-**上述有关常量的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/Constant/Constant.go)
+## [iota](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/iota/iota.go)
 
-## iota
-
-[`iota`](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/iota/iota.go)是go语言的常量计数器，只能在常量的表达式中使用。
+`iota`是go语言的常量计数器，只能在常量的表达式中使用。
 
 `iota`在`const`关键字出现时将被重置为0。const中每新增一行常量声明将使`iota`计数一次(`iota`可理解为`const`语句块中的行索引)。
 使用`iota`能简化定义，在定义枚举时很有用。
@@ -414,13 +420,13 @@ const (
 	)
 ```
 
-**上述有关iota的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/iota/iota.go)
+------
 
-# 基本数据类型
+# [基本数据类型](https://github.com/letengzz/JC-GoPro/tree/main/03Basic_Data_Type)
 
-## 整型
+## [整型](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Integer/Integer.go)
 
-[整型](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Integer/Integer.go)分为以下两个大类： 按长度分为：`int8`、`int16`、`int32`、`int64` 对应的无符号整型：`uint8`、`uint16`、`uint32`、`uint64`
+**整型**分为以下两个大类： 按长度分为：`int8`、`int16`、`int32`、`int64` 对应的无符号整型：`uint8`、`uint16`、`uint32`、`uint64`
 
 其中，`uint8`就是我们熟知的`byte`型，`int16`对应C语言中的`short`型，`int64`对应C语言中的`long`型。
 
@@ -468,9 +474,7 @@ func main(){
 }
 ```
 
-**上述有关变量的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Integer/Integer.go)
-
-## 浮点型
+## [浮点型](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Float/Float.go)
 
 Go语言支持两种浮点型数：`float32`和`float64`。这两种浮点型数据格式遵循`IEEE 754`标准： `float32` 的浮点数的最大范围约为 `3.4e38`，可以使用常量定义：`math.MaxFloat32`。 `float64` 的浮点数的最大范围约为 `1.8e308`，可以使用一个常量定义：`math.MaxFloat64`。
 
@@ -490,9 +494,7 @@ func main() {
 }
 ```
 
-**上述有关浮点型的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Float/Float.go)
-
-## 复数
+## [复数](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Complex/Complex.go)
 
 复数有实部和虚部，Go语言中分为`complex64`和`complex128`，`complex64`的实部和虚部为32位，`complex128`的实部和虚部为64位。
 
@@ -507,9 +509,7 @@ fmt.Println(c1)
 fmt.Println(c2)
 ```
 
-**上述有关复数的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Complex/Complex.go)
-
-## 布尔值
+## [布尔值](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Boolean/Boolean.go)
 
 Go语言中以`bool`类型进行声明布尔型数据，布尔型数据只有`true`(真)和`false`(假)两个值。
 
@@ -519,9 +519,7 @@ Go语言中以`bool`类型进行声明布尔型数据，布尔型数据只有`tr
 2. Go 语言中不允许将整型强制转换为布尔型.
 3. 布尔型无法参与数值运算，也无法与其他类型进行转换。
 
-**上述有关布尔型的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Boolean/Boolean.go)
-
-## 字符串
+## [字符串](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/String/String.go)
 
 Go语言中的字符串以原生数据类型出现，使用字符串就像使用其他原生数据类型（int、bool、float32、float64 等）一样。 Go 语言里的字符串的内部实现使用`UTF-8`编码。 字符串的值为`双引号(")`中的内容，可以在Go语言的源码中直接添加非ASCII码字符
 
@@ -566,9 +564,7 @@ fmt.Println(s1)
 
 ![image-20220218143321249](https://cdn.jsdelivr.net/gh/letengzz/Two-C/img/Go/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C.png)
 
-**上述有关字符串的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/String/String.go)
-
-## byte和rune
+## [byte和rune](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Byte_Rune/main.go)
 
 组成每个字符串的元素叫做“字符”，可以通过遍历或者单个获取字符串元素获得字符。 字符用单引号（`'`）包裹起来
 
@@ -633,9 +629,7 @@ func changeString() {
 }
 ```
 
-**上述有关byte和rune的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Byte_Rune/main.go)
-
-## 类型转换
+## [类型转换](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Type_Conversion/Type_Conversion.go)
 
 Go语言中只有强制类型转换，没有隐式类型转换。该语法只能在两个类型之间支持相互转换的时候使用。
 
@@ -659,49 +653,37 @@ func sqrtDemo() {
 }
 ```
 
-**上述有关类型转换的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/03Basic_Data_Type/Type_Conversion/Type_Conversion.go)
+# [运算符](https://github.com/letengzz/JC-GoPro/tree/main/04Operator) 
 
-# 运算符 
-
-## 算术运算符
+## [算术运算符](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Arithmetic_operators/Arithmetic_operators.go)
 
 <img src="https://cdn.jsdelivr.net/gh/letengzz/Two-C/img/Go/%E8%BF%90%E7%AE%97%E7%AC%A6/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6.png" alt="image-20220218152938412" style="zoom:67%;" />
 
 **注意：** `++`（自增）和`--`（自减）在Go语言中是单独的语句，并不是运算符。
 
-**上述有关算术运算符的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Arithmetic_operators/Arithmetic_operators.go)
-
-## 关系运算符 
+## [关系运算符](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Relational_operators/Relational_operators.go)
 
 <img src="https://cdn.jsdelivr.net/gh/letengzz/Two-C/img/Go/%E8%BF%90%E7%AE%97%E7%AC%A6/%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6.png" alt="image-20220218152954880" style="zoom:67%;" />
 
-**上述有关关系运算符的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Relational_operators/Relational_operators.go)
-
-## 逻辑运算符
+## [逻辑运算符](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Logical_operators/Logical_operators.go)
 
 <img src="https://cdn.jsdelivr.net/gh/letengzz/Two-C/img/Go/%E8%BF%90%E7%AE%97%E7%AC%A6/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6.png" alt="image-20220218153009186" style="zoom:67%;" />
 
-**上述有关逻辑运算符的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Logical_operators/Logical_operators.go)
-
-## 位运算符
+## [位运算符](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Shift_operator/Shift_operator.go)
 
 位运算符对整数在内存中的二进制位进行操作。
 
 <img src="https://cdn.jsdelivr.net/gh/letengzz/Two-C/img/Go/%E8%BF%90%E7%AE%97%E7%AC%A6/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6.png" alt="image-20220218153132792" style="zoom:67%;" />
 
-**上述有关位运算符的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Shift_operator/Shift_operator.go)
-
-## 赋值运算符
+## [赋值运算符](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Assignment_operator/Assignment_operator.go)
 
 <img src="https://cdn.jsdelivr.net/gh/letengzz/Two-C/img/Go/%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6.png" alt="image-20220218153150658" style="zoom:67%;" />
 
-**上述有关赋值运算符的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Assignment_operator/Assignment_operator.go)
+# [流程控制](https://github.com/letengzz/JC-GoPro/tree/main/05Process_Control)
 
-# 流程控制
+## [分支结构](https://github.com/letengzz/JC-GoPro/tree/main/05Process_Control/Branch_Structure)
 
-## 分支结构
-
-### if else语句
+### [if else语句](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Branch_Structure/if_else/if_else.go)
 
 **基本写法**
 
@@ -754,11 +736,9 @@ func ifDemo2() {
 }
 ```
 
-**上述有关if-else的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Branch_Structure/if_else/if_else.go)
-
 ------
 
-### switch case
+### [switch case](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Branch_Structure/switch_case/switch_case.go)
 
 使用`switch`语句可方便地对大量的值进行条件判断。
 
@@ -845,11 +825,9 @@ a
 b
 ```
 
-**上述有关switch-case的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Branch_Structure/switch_case/switch_case.go)
+## [循环结构](https://github.com/letengzz/JC-GoPro/tree/main/05Process_Control/Loop_Structure)
 
-## 循环结构
-
-### for循环
+### [for循环](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Loop_Structure/for/for.go)
 
 Go 语言中的所有循环类型均可以使用`for`关键字来完成。
 
@@ -910,11 +888,9 @@ for {
 
 for循环可以通过[`break`](#break跳出循环)、[`goto`](#goto跳转到指定标签)、[`return`](#)、[`panic`](#)语句强制退出循环。
 
-**上述有关for循环的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Loop_Structure/for/for.go)
-
 ------
 
-### for range(键值循环)
+### [for range(键值循环)](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Loop_Structure/for_range/for_range.go)
 
 Go语言中可以使用`for range`遍历数组、切片、字符串、map 及通道（channel）。 通过`for range`遍历的返回值有以下规律：
 
@@ -930,11 +906,11 @@ var a = [4]int{1, 2, 3, 5}
 	}
 ```
 
-**上述有关键值循环的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Loop_Structure/for_range/for_range.go)
+------
 
-## 跳转语句
+## [跳转语句](https://github.com/letengzz/JC-GoPro/tree/main/05Process_Control/Jump_Statements)
 
-### goto(跳转到指定标签)
+### [goto(跳转到指定标签)](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Jump_Statements/goto/goto.go)
 
 `goto`语句通过标签进行代码间的无条件跳转。`goto`语句可以在快速跳出循环、避免重复退出上有一定的帮助。Go语言中使用`goto`语句能简化一些代码的实现过程。 
 
@@ -980,9 +956,9 @@ breakTag:
 }
 ```
 
-**上述有关goto的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Jump_Statements/goto/goto.go)
+------
 
-### break(跳出循环)
+### [break(跳出循环)](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Jump_Statements/break/break.go)
 
 `break`语句可以结束`for`、`switch`和`select`的代码块。
 
@@ -1005,9 +981,7 @@ BREAKDEMO1:
 }
 ```
 
-**上述有关break的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Jump_Statements/break/break.go)
-
-### continue(继续下次循环)
+### [continue(继续下次循环)](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Jump_Statements/continue/continue.go)
 
 `continue`语句可以结束当前循环，开始下一次的循环迭代过程，仅限在`for`循环内使用。
 
@@ -1030,9 +1004,7 @@ forloop1:
 }
 ```
 
-**上述有关continue的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Jump_Statements/continue/continue.go)
-
-# 数组
+# [数组](https://github.com/letengzz/JC-GoPro/tree/main/06Arrays)
 
 数组是**同一种数据类型元素的集合**。 
 
@@ -1126,7 +1098,7 @@ func main() {
 
 ## [多维数组](https://github.com/letengzz/JC-GoPro/blob/main/06Arrays/Multidimensional_Array/main.go)
 
-### 二维数组的定义
+### [二维数组的定义](https://github.com/letengzz/JC-GoPro/blob/main/06Arrays/Multidimensional_Array/Multidimensional_Array_Initialization.go)
 
 ```go
 func main() {
@@ -1140,7 +1112,7 @@ func main() {
 }
 ```
 
-### 二维数组的遍历
+### [二维数组的遍历](https://github.com/letengzz/JC-GoPro/blob/main/06Arrays/Multidimensional_Array/Multidimensional_Array_Traversal.go)
 
 ```go
 func main() {
@@ -1218,9 +1190,7 @@ func main() {
 1. 数组支持"`==`"、"`!=`" 操作符，因为内存总是被初始化过的。
 2. `[n]*T`表示[指针数组](#指针数组)，`*[n]T`表示[数组指针](#数组指针) 。
 
-**上述有关数组的代码** --> [Here](https://github.com/letengzz/JC-GoPro/tree/main/06Arrays)
-
-# 切片
+# [切片](https://github.com/letengzz/JC-GoPro/tree/main/07Slice)
 
 切片（`Slice`）是一个拥有相同类型元素的可变长度的序列。它是基于数组类型做的一层封装。它非常灵活，支持自动扩容。
 
@@ -1555,7 +1525,7 @@ func main() {
 }
 ```
 
-## 从切片中删除元素
+## [从切片中删除元素](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_Delete/Slice_Delete.go)
 
 Go语言并没有提供用于删除元素的语法或接口，而是通过利用切片本身的特性来删除元素——追加元素。即 **以被删除元素为分界点，将前后两个部分的内存重新连接起来。**使用切片的追加(append)特性，利用代码实现
 
@@ -1577,7 +1547,7 @@ func main() {
 
 举个例子，现在有一个数组`a := [8]int{0, 1, 2, 3, 4, 5, 6, 7}`，切片`s1 := a[:5]`，相应示意图如下。![slice_01](https://www.liwenzhou.com/images/Go/slice/slice_01.png)切片`s2 := a[3:6]`，相应示意图如下：![slice_02](https://www.liwenzhou.com/images/Go/slice/slice_02.png)
 
-**上述有关切片的代码** --> [Here]()
+
 
 # 附录
 
