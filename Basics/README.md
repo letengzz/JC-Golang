@@ -185,7 +185,7 @@ Go语言中有25个关键字：
 
 ## 变量 
 
-[变量(`Variable`)](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/Variable/Variable.go)的功能是存储数据。不同的变量保存的数据类型可能会不一样。经过半个多世纪的发展，编程语言已经基本形成了一套固定的类型，常见变量的数据类型有：[整型](#基本数据类型/整型)、[浮点型](#基本数据类型/浮点型)、[布尔型](#基本数据类型/布尔型)等。
+[变量(`Variable`)](https://github.com/letengzz/JC-GoPro/blob/main/02Variables_Constants/Variable/Variable.go)的功能是存储数据。不同的变量保存的数据类型可能会不一样。经过半个多世纪的发展，编程语言已经基本形成了一套固定的类型，常见变量的数据类型有：[整型](#整型)、[浮点型](#浮点型)、[布尔型](#布尔型)等。
 
 Go语言中的每一个变量都有自己的类型，并且变量必须经过声明才能开始使用。
 
@@ -301,7 +301,7 @@ func main() {
 
 ```go
 func foo() (int, string) {
-	return 10, "Q1mi"
+	return 10, "nihao"
 }
 func main() {
 	x, _ := foo()
@@ -532,7 +532,7 @@ s1 := "hello"
 s2 := "你好"
 ```
 
-[**字符串转义符**](#附录/常见转义符)
+[**字符串转义符**](#转义符)
 
 **例**：我们要打印一个Windows平台下的一个文件路径：
 
@@ -570,7 +570,9 @@ fmt.Println(s1)
 
 ## byte和rune
 
-组成每个字符串的元素叫做“字符”，可以通过遍历或者单个获取字符串元素获得字符。 字符用单引号（’）包裹起来，如：
+组成每个字符串的元素叫做“字符”，可以通过遍历或者单个获取字符串元素获得字符。 字符用单引号（`'`）包裹起来
+
+**例**：
 
 ```go
 var a = '中'
@@ -673,7 +675,7 @@ func sqrtDemo() {
 
 <img src="https://cdn.jsdelivr.net/gh/letengzz/Two-C/img/Go/%E8%BF%90%E7%AE%97%E7%AC%A6/%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6.png" alt="image-20220218152954880" style="zoom:67%;" />
 
-**上述有关关系运算符的代码** --> [Here]()
+**上述有关关系运算符的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/04Operator/Relational_operators/Relational_operators.go)
 
 ## 逻辑运算符
 
@@ -753,6 +755,8 @@ func ifDemo2() {
 ```
 
 **上述有关if-else的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Branch_Structure/if_else/if_else.go)
+
+------
 
 ### switch case
 
@@ -904,9 +908,11 @@ for {
 }
 ```
 
-for循环可以通过[`break`](#break(跳出循环))、[`goto`](#goto(跳转到指定标签))、[`return`]()、[`panic`]()语句强制退出循环。
+for循环可以通过[`break`](#break跳出循环)、[`goto`](#goto跳转到指定标签)、[`return`](#)、[`panic`](#)语句强制退出循环。
 
 **上述有关for循环的代码** --> [Here](https://github.com/letengzz/JC-GoPro/blob/main/05Process_Control/Loop_Structure/for/for.go)
+
+------
 
 ### for range(键值循环)
 
@@ -914,7 +920,7 @@ Go语言中可以使用`for range`遍历数组、切片、字符串、map 及通
 
 1. [数组](#数组)、[切片](#切片)、[字符串](#字符串)返回索引和值。
 2. [map](#map)返回键和值。
-3. [通道]()`channel`只返回通道内的值。
+3. [通道](#)`channel`只返回通道内的值。
 
 ```go
 var a = [4]int{1, 2, 3, 5}
@@ -1028,17 +1034,19 @@ forloop1:
 
 # 数组
 
-数组是**同一种数据类型元素的集合**。 在Go语言中，数组从声明时就确定，使用时可以修改数组成员，但是**数组大小不可变化**。
+数组是**同一种数据类型元素的集合**。 
 
-## 数组的定义
+在Go语言中，数组从声明时就确定，使用时可以修改数组成员，但是**数组大小不可变化**。
 
-[**定义方式**](https://github.com/letengzz/JC-GoPro/blob/main/06Arrays/Array_Define/ArrayDefine.go)：
+## [数组的定义](https://github.com/letengzz/JC-GoPro/blob/main/06Arrays/Array_Define/ArrayDefine.go)
+
+**定义方式**：
 
 ```bash
 var 数组变量名 [元素数量]T
 ```
 
-比如：`var a [5]int`， 数组的长度必须是常量，并且长度是数组类型的一部分。一旦定义，长度不能变。 `[5]int`和`[10]int`是不同的类型。
+**例**：
 
 ```go
 var a [3]int
@@ -1046,11 +1054,16 @@ var b [4]int
 a = b //不可以这样做，因为此时a和b是不同的类型
 ```
 
-数组可以通过下标进行访问，下标是从`0`开始，最后一个元素下标是：`len-1`，访问越界（下标在合法范围之外），则触发访问越界，会`panic`。
+**注意**：
 
-## 数组的初始化
+1. 数组的长度必须是常量，并且长度是数组类型的一部分。一旦定义，长度不能变。 `[5]int`和`[10]int`是不同的类型。
+2. 数组可以通过下标进行访问，下标是从`0`开始，最后一个元素下标是：`len-1`，访问越界（下标在合法范围之外），则触发访问越界，会`panic`。
 
-1.　初始化数组时可以使用初始化列表来设置数组元素的值。
+## [数组的初始化](https://github.com/letengzz/JC-GoPro/blob/main/06Arrays/Array_Initialization/Array_Initialization.go)
+
+1. 初始化数组时可以使用初始化列表来设置数组元素的值。
+
+   **注意**：每次都要确保提供的初始值和数组长度一致。
 
 ```go
 func main() {
@@ -1063,7 +1076,9 @@ func main() {
 }
 ```
 
-2.　按照上面的方法每次都要确保提供的初始值和数组长度一致，一般情况下我们可以让编译器根据初始值的个数**自行推断数组的长度**，例如：
+2.　可以让编译器根据初始值的个数**自行推断数组的长度**
+
+**例**：
 
 ```go
 func main() {
@@ -1090,28 +1105,26 @@ func main() {
 }
 ```
 
-**数组的遍历**
+## [数组的遍历](https://github.com/letengzz/JC-GoPro/blob/main/06Arrays/Array_Traversal/Array_Traversal.go)
 
 1. `for`循环遍历
 
    ```go
-   	var a = [...]string{"北京", "上海", "深圳"}
-   	for i := 0; i < len(a); i++ {
-   		fmt.Println(a[i])
-   	}    
+   var a = [...]string{"北京", "上海", "深圳"}
+   for i := 0; i < len(a); i++ {
+   	fmt.Println(a[i])
+   }    
    ```
 
 2. `for range`遍历
 
    ```go
-   	for index, value := range a {
-   		fmt.Println(index, value)
-   	}
+   for index, value := range a {
+   	fmt.Println(index, value)
+   }
    ```
 
-## 多维数组
-
-Go语言是支持多维数组的，我们这里以二维数组为例（数组中又嵌套数组）。
+## [多维数组](https://github.com/letengzz/JC-GoPro/blob/main/06Arrays/Multidimensional_Array/main.go)
 
 ### 二维数组的定义
 
@@ -1153,7 +1166,9 @@ func main() {
 成都	重庆	
 ```
 
-**注意：** 多维数组**只有第一层**可以使用`...`来让编译器推导数组长度。例如：
+**注意：** 多维数组**只有第一层**可以使用`...`来让编译器推导数组长度。
+
+**例**：
 
 ```go
 //支持的写法
@@ -1169,6 +1184,8 @@ b := [3][...]string{
 	{"成都", "重庆"},
 }
 ```
+
+## [$指针数组](https://github.com/letengzz/JC-GoPro/blob/main/06Arrays/Pointer_Array/Pointer_Array.go)
 
 ## 数组是值类型
 
@@ -1199,9 +1216,9 @@ func main() {
 **注意：**
 
 1. 数组支持"`==`"、"`!=`" 操作符，因为内存总是被初始化过的。
-2. `[n]*T`表示[指针数组]()，`*[n]T`表示[数组指针]() 。
+2. `[n]*T`表示[指针数组](#指针数组)，`*[n]T`表示[数组指针](#数组指针) 。
 
-**上述有关数组的代码** --> [Here]()
+**上述有关数组的代码** --> [Here](https://github.com/letengzz/JC-GoPro/tree/main/06Arrays)
 
 # 切片
 
@@ -1209,16 +1226,13 @@ func main() {
 
 切片是一个引用类型，它的内部结构包含`地址`、`长度`和`容量`。切片一般用于快速地操作一块数据集合。
 
-## 切片的定义
+## [切片的定义](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_Define/Slice_Define.go)
 
-声明切片类型的[基本语法]()如下：
+声明切片类型的**基本语法**如下：
 
 ```go
-var name []T
+var 变量名 []切片中的元素类型
 ```
-
-- name:表示变量名
-- T:表示切片中的元素类型
 
 **例**：
 
@@ -1239,13 +1253,14 @@ func main() {
 }
 ```
 
-## 切片的长度和容量
+## [切片表达式](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_Define/Slice_Define.go)
 
-切片拥有自己的长度和容量，我们可以通过使用内置的`len()`函数求长度，使用内置的`cap()`函数求切片的容量。
+​	切片表达式从字符串、数组、指向数组或切片的指针构造子字符串或切片。
 
-## 切片表达式
+它有两种变体：
 
-切片表达式从字符串、数组、指向数组或切片的指针构造子字符串或切片。它有两种变体：一种指定low和high两个索引界限值的简单的形式，另一种是除了low和high索引界限值外还指定容量的完整的形式。
+1. 一种指定low和high两个索引界限值的[简单的形式](#简单切片表达式)
+2. 除了low和high索引界限值外还指定容量的[完整的形式](#完整切片表达式)
 
 ### 简单切片表达式
 
@@ -1255,17 +1270,13 @@ func main() {
 func main() {
 	a := [5]int{1, 2, 3, 4, 5}
 	s := a[1:3]  // s := a[low:high]
-	fmt.Printf("s:%v len(s):%v cap(s):%v\n", s, len(s), cap(s))
+	fmt.Printf("s:%v len(s):%v cap(s):%v\n", s, len(s), cap(s))//s:[2 3] len(s):2 cap(s):4
 }
 ```
 
-输出：
+为了方便起见，可以省略切片表达式中的任何索引。
 
-```bash
-s:[2 3] len(s):2 cap(s):4
-```
-
-为了方便起见，可以省略切片表达式中的任何索引。省略了`low`则默认为0；省略了`high`则默认为切片操作数的长度:
+省略了`low`则默认为0；省略了`high`则默认为切片操作数的长度:
 
 ```go
 a[2:]  // 等同于 a[2:len(a)]
@@ -1275,7 +1286,7 @@ a[:]   // 等同于 a[0:len(a)]
 
 **注意：**
 
-对于数组或字符串，如果`0 <= low <= high <= len(a)`，则索引合法，否则就会索引越界（out of range）。
+对于数组或字符串，如果`0 <= low <= high <= len(a)`，则索引合法，否则就会索引越界（`out of range`）。
 
 对切片再执行切片表达式时（切片再切片），`high`的上限边界是切片的容量`cap(a)`，而不是长度。**常量索引**必须是非负的，并且可以用int类型的值表示;对于数组或常量字符串，常量索引也必须在有效范围内。如果`low`和`high`两个指标都是常数，它们必须满足`low <= high`。如果索引在运行时超出范围，就会发生运行时`panic`。
 
@@ -1283,17 +1294,10 @@ a[:]   // 等同于 a[0:len(a)]
 func main() {
 	a := [5]int{1, 2, 3, 4, 5}
 	s := a[1:3]  // s := a[low:high]
-	fmt.Printf("s:%v len(s):%v cap(s):%v\n", s, len(s), cap(s))
+	fmt.Printf("s:%v len(s):%v cap(s):%v\n", s, len(s), cap(s))//s:[2 3] len(s):2 cap(s):4
 	s2 := s[3:4]  // 索引的上限是cap(s)而不是len(s)
-	fmt.Printf("s2:%v len(s2):%v cap(s2):%v\n", s2, len(s2), cap(s2))
+	fmt.Printf("s2:%v len(s2):%v cap(s2):%v\n", s2, len(s2), cap(s2))//s2:[5] len(s2):1 cap(s2):1
 }
-```
-
-输出：
-
-```bash
-s:[2 3] len(s):2 cap(s):4
-s2:[5] len(s2):1 cap(s2):1
 ```
 
 ### 完整切片表达式
@@ -1310,33 +1314,21 @@ a[low : high : max]
 func main() {
 	a := [5]int{1, 2, 3, 4, 5}
 	t := a[1:3:5]
-	fmt.Printf("t:%v len(t):%v cap(t):%v\n", t, len(t), cap(t))
+	fmt.Printf("t:%v len(t):%v cap(t):%v\n", t, len(t), cap(t))//t:[2 3] len(t):2 cap(t):4
 }
-```
-
-输出结果：
-
-```bash
-t:[2 3] len(t):2 cap(t):4
 ```
 
 完整切片表达式需要满足的条件是`0 <= low <= high <= max <= cap(a)`，其他条件和简单切片表达式相同。
 
-## 使用make()函数构造切片
+## [构造切片](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_Define/Slice_Define.go)
 
 我们上面都是基于数组来创建的切片，如果需要动态的创建一个切片，我们就需要使用内置的`make()`函数，格式如下：
 
 ```bash
-make([]T, size, cap)
+make([]元素类型, 元素的数量, 容量)
 ```
 
-其中：
-
-- T:切片的元素类型
-- size:切片中元素的数量
-- cap:切片的容量
-
-举个例子：
+**例**：
 
 ```go
 func main() {
@@ -1349,19 +1341,23 @@ func main() {
 
 上面代码中`a`的内部存储空间已经分配了10个，但实际上只用了2个。 容量并不会影响当前元素的个数，所以`len(a)`返回2，`cap(a)`则返回该切片的容量。
 
-## 切片的本质
+## [切片的长度和容量](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_Length_Capacity/Slice_Length_Capacity.go)
 
-切片的本质就是对底层数组的封装，它包含了三个信息：底层数组的指针、切片的长度（len）和切片的容量（cap）。
+切片拥有自己的长度和容量，我们可以通过使用内置的`len()`函数求长度，使用内置的`cap()`函数求切片的容量。
 
-举个例子，现在有一个数组`a := [8]int{0, 1, 2, 3, 4, 5, 6, 7}`，切片`s1 := a[:5]`，相应示意图如下。![slice_01](https://www.liwenzhou.com/images/Go/slice/slice_01.png)切片`s2 := a[3:6]`，相应示意图如下：![slice_02](https://www.liwenzhou.com/images/Go/slice/slice_02.png)
-
-## 判断切片是否为空
+## [判断切片是否为空](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_Judge_Compare/Slice_Judge_Compare.go)
 
 要检查切片是否为空，请始终使用`len(s) == 0`来判断，而不应该使用`s == nil`来判断。
 
-## 切片不能直接比较
+## [切片不能直接比较](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_Judge_Compare/Slice_Judge_Compare.go)
 
-切片之间是不能比较的，我们不能使用`==`操作符来判断两个切片是否含有全部相等元素。 切片唯一合法的比较操作是和`nil`比较。 **一个`nil`值的切片并没有底层数组**，一个`nil`值的切片的长度和容量都是0。但是我们不能说一个长度和容量都是0的切片一定是`nil`，例如下面的示例：
+切片之间是不能比较的，我们不能使用`==`操作符来判断两个切片是否含有全部相等元素。 切片唯一合法的比较操作是和`nil`比较。 **一个`nil`值的切片并没有底层数组**
+
+**注意**：
+
+一个`nil`值的切片的长度和容量都是0。但是我们不能说一个长度和容量都是0的切片一定是`nil`
+
+**例**：
 
 ```go
 var s1 []int         //len(s1)=0;cap(s1)=0;s1==nil
@@ -1371,7 +1367,7 @@ s3 := make([]int, 0) //len(s3)=0;cap(s3)=0;s3!=nil
 
 所以要判断一个切片是否是空的，要是用`len(s) == 0`来判断，不应该使用`s == nil`来判断。
 
-## 切片的赋值拷贝
+## [切片的赋值拷贝](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_CopyAssignment/Slice_CopyAssignment.go)
 
 下面的代码中演示了拷贝前后两个变量共享底层数组，对一个切片的修改会影响另一个切片的内容，这点需要特别注意。
 
@@ -1385,7 +1381,7 @@ func main() {
 }
 ```
 
-## 切片遍历
+## [切片遍历](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_Traversal/Slice_Traversal.go)
 
 切片的遍历方式和数组是一致的，支持索引遍历和`for range`遍历。
 
@@ -1403,7 +1399,7 @@ func main() {
 }
 ```
 
-## append()方法为切片添加元素
+## [为切片添加元素](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_Append/Slice_Append.go)
 
 Go语言的内建函数`append()`可以为切片动态添加元素。 可以一次添加一个元素，可以添加多个元素，也可以添加另一个切片中的元素（后面加`…`）。
 
@@ -1469,7 +1465,9 @@ func main() {
 1. `append()`函数将元素追加到切片的最后并返回该切片。
 2. 切片numSlice的容量按照1，2，4，8，16这样的规则自动进行扩容，每次扩容后都是扩容前的2倍。
 
-append()函数还支持一次性追加多个元素。 例如：
+**append()函数还支持一次性追加多个元素** 
+
+**例**：
 
 ```go
 var citySlice []string
@@ -1512,16 +1510,14 @@ if cap > doublecap {
 
 从上面的代码可以看出以下内容：
 
-- 首先判断，如果新申请容量（cap）大于2倍的旧容量（old.cap），最终容量（newcap）就是新申请的容量（cap）。
-- 否则判断，如果旧切片的长度小于1024，则最终容量(newcap)就是旧容量(old.cap)的两倍，即（newcap=doublecap），
-- 否则判断，如果旧切片长度大于等于1024，则最终容量（newcap）从旧容量（old.cap）开始循环增加原来的1/4，即（newcap=old.cap,for {newcap += newcap/4}）直到最终容量（newcap）大于等于新申请的容量(cap)，即（newcap >= cap）
-- 如果最终容量（cap）计算值溢出，则最终容量（cap）就是新申请容量（cap）。
+- 首先判断，如果新申请容量（`cap`）大于2倍的旧容量（`old.cap`），最终容量（`newcap`）就是新申请的容量（`cap`）。
+- 否则判断，如果旧切片的长度小于1024，则最终容量(`newcap`)就是旧容量(`old.cap`)的两倍，即（`newcap=doublecap`），
+- 否则判断，如果旧切片长度大于等于1024，则最终容量（`newcap`）从旧容量（`old.cap`）开始循环增加原来的1/4，即（`newcap=old.cap,for {newcap += newcap/4}`）直到最终容量（`newcap`）大于等于新申请的容量(`cap`)，即（`newcap >= cap`）
+- 如果最终容量（`cap`）计算值溢出，则最终容量（`cap`）就是新申请容量（`cap`）。
 
-需要注意的是，切片扩容还会根据切片中元素的类型不同而做不同的处理，比如`int`和`string`类型的处理方式就不一样。
+**注意**：切片扩容还会根据切片中元素的类型不同而做不同的处理，比如`int`和`string`类型的处理方式就不一样。
 
-## 使用copy()函数复制切片
-
-首先我们来看一个问题：
+## [复制切片](https://github.com/letengzz/JC-GoPro/blob/main/07Slice/Slice_Copy/Slice_Copy.go)
 
 ```go
 func main() {
@@ -1540,15 +1536,10 @@ func main() {
 Go语言内建的`copy()`函数可以迅速地将一个切片的数据复制到另外一个切片空间中，`copy()`函数的使用格式如下：
 
 ```bash
-copy(destSlice, srcSlice []T)
+copy(目标切片, 数据来源切片 []T)
 ```
 
-其中：
-
-- srcSlice: 数据来源切片
-- destSlice: 目标切片
-
-举个例子：
+**例**：
 
 ```go
 func main() {
@@ -1578,7 +1569,13 @@ func main() {
 }
 ```
 
-总结一下就是：要从切片a中删除索引为`index`的元素，操作方法是`a = append(a[:index], a[index+1:]...)`
+**总结**：要从切片a中删除索引为`index`的元素，操作方法是`a = append(a[:index], a[index+1:]...)`
+
+## 切片原理
+
+切片的本质就是对底层数组的封装，它包含了三个信息：底层数组的指针、切片的长度（len）和切片的容量（cap）。
+
+举个例子，现在有一个数组`a := [8]int{0, 1, 2, 3, 4, 5, 6, 7}`，切片`s1 := a[:5]`，相应示意图如下。![slice_01](https://www.liwenzhou.com/images/Go/slice/slice_01.png)切片`s2 := a[3:6]`，相应示意图如下：![slice_02](https://www.liwenzhou.com/images/Go/slice/slice_02.png)
 
 **上述有关切片的代码** --> [Here]()
 

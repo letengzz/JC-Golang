@@ -1,2 +1,2 @@
-# JC-Golang
+# catalog
 Go Library
