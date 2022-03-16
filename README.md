@@ -1,19 +1,58 @@
-# catalog
-## 开发环境
+# 目录
+## 开发准备
 
+- [搭建Go语言开发环境]()
 
+- [VS Code配置Go语言开发环境]()
+- [Go依赖管理及Go module使用]()
+- [使用Go module导入本地包]()
 
 ## Go语言基础
 
+- [Go程序的结构及用法]()
+- [变量和常量]() 代码 --> [Here]()
+- [基本数据类型]() 代码 --> [Here]()
+- [运算符]() 代码 --> [Here]()
+- [流程控制]() 代码 --> [Here]()
+- [数组]() 代码 --> [Here]()
+- [切片]() 代码 --> [Here]()
+- [map]() 代码 --> [Here]()
+- [指针]() 代码 --> [Here]()
+- [函数]() 代码 --> [Here]()
+- [自定义类型和类型别名]() 代码 --> [Here]()
+- [结构体]() 代码 --> [Here]()
+- [包和依赖管理]() 代码 --> [Here]()
+- [接口]() 代码 --> [Here]()
+- [反射]() 代码 --> [Here]()
+- [并发]() 代码 --> [Here]()
+- [网络编程]()  代码 --> [Here]()
+- [单元测试]() 代码 --> [Here]()
 
+## 标准库
 
-## 常用标准库
+- [官方标准库文档](https://pkg.go.dev/std)
+- [标准库文档中文版](https://studygolang.com/pkgdoc)
 
+### 常用标准库
 
+- [fmt及格式化占位符]()
+- [time]()
+- [flag]()
+- [log]()
+- [文档操作]()
+- [strconv]()
+- [net/http]()
+- [context]()
 
 ## 单元测试
 
-
+- [单元测试基础]()
+- [网络测试]()
+- [MySQL和Redis测试]()
+- [mock接口测试]()
+- [monkey打桩测试]()
+- [goconvey的使用]()
+- [编写可测试的代码]()
 
 ## 数据库相关
 
@@ -93,23 +132,21 @@
 
 [REL](https://link.zhihu.com/?target=https%3A//github.com/go-rel/rel) - Modern Database Access Layer for Go
 
-## Web开发
+## Web框架
 
-### gin
+### [gin]()
 
-### beego
+### [beego]()
 
-### iris
+### [iris]()
 
-### Echo
+### [Echo]()
 
-### martini
+### [martini]()
 
-### Fiber
+### [Fiber]()
 
 ## 分布式系统
-
-*协助构建分布式系统的包。 (翻译出错了? 试试* *[英文版](https://link.zhihu.com/?target=https%3A//github.com/yinggaozhen/awesome-go-cn/blob/master/README_EN.md%23distributed-systems)* *吧~)*
 
 - [go-kit](https://link.zhihu.com/?target=https%3A//github.com/go-kit/kit) **star:22226** 支持服务发现、负载平衡、插件式传输、请求跟踪等功能的Microservice toolkit。 
 - [go-micro](https://link.zhihu.com/?target=https%3A//github.com/micro/go-micro) **star:17587** 分布式系统开发框架。 
@@ -152,8 +189,40 @@
 
 ## 组件及技巧
 
-- [go语言json技巧](https://www.liwenzhou.com/posts/Go/json_tricks_in_go)
-- 
-
+- [Go语言json技巧](https://www.liwenzhou.com/posts/Go/json_tricks_in_go)
+- [option选项模式](https://www.liwenzhou.com/posts/Go/functional_options_pattern/)
+- [Go语言中的单例模式（翻译）](https://www.liwenzhou.com/posts/Go/singleton_in_go/)
 - [结构体转map的若干方法](https://www.liwenzhou.com/posts/Go/struct2map/)
-- [Viper教程](https://www.liwenzhou.com/posts/Go/viper_tutorial/)
+- [Go语言配置管理神器——Viper中文教程](https://www.liwenzhou.com/posts/Go/viper_tutorial/)
+- [protobuf初识](https://www.liwenzhou.com/posts/Go/protobuf/)
+- [gRPC初识](https://www.liwenzhou.com/posts/Go/gRPC/)
+- [Go操作NSQ](https://www.liwenzhou.com/posts/Go/go_nsq/)
+- [Go操作kafka](https://www.liwenzhou.com/posts/Go/go_kafka/)
+- [Go操作etcd](https://www.liwenzhou.com/posts/Go/go_etcd/)
+- [Go语言获取系统性能数据gopsutil库](https://www.liwenzhou.com/posts/Go/go_gopsutil/)
+- [二进制协议gob及msgpack介绍](https://www.liwenzhou.com/posts/Go/gob_msgpack/)
+- [influxDB](https://www.liwenzhou.com/posts/Go/go_influxdb/)
+- [Elasticsearch](https://www.liwenzhou.com/posts/Go/go_elasticsearch/)
+- [Go第三方日志库logrus](https://www.liwenzhou.com/posts/Go/go_logrus/)
+- [Go语言项目中使用zap日志库（翻译）](https://www.liwenzhou.com/posts/Go/zap/)
+- [Go pprof性能调优](https://www.liwenzhou.com/posts/Go/performance_optimisation/)
+- [为Go项目编写Makefile](https://www.liwenzhou.com/posts/Go/makefile/)
+- [在select语句中实现优先级](https://www.liwenzhou.com/posts/Go/priority_in_go_select/)
+- [在关于切片操作的技巧（翻译）](https://www.liwenzhou.com/posts/Go/slice_tricks/)
+- [Go语言结构体的内存布局](https://www.liwenzhou.com/posts/Go/struct_memory_layout/)
+
+## 其他
+
+### RabbitMQ
+
+- [RabbitMQ Go客户端教程1——HelloWorld（翻译）](https://www.liwenzhou.com/posts/Go/go_rabbitmq_tutorials_01/)
+
+- [RabbitMQ Go客户端教程2——任务队列（翻译）](https://www.liwenzhou.com/posts/Go/go_rabbitmq_tutorials_02/)
+
+- [RabbitMQ Go客户端教程3——发布/订阅（翻译）](https://www.liwenzhou.com/posts/Go/go_rabbitmq_tutorials_03/)
+
+- [RabbitMQ Go客户端教程4——路由（翻译）](https://www.liwenzhou.com/posts/Go/go_rabbitmq_tutorials_04/)
+
+- [RabbitMQ Go客户端教程5——topic（翻译）](https://www.liwenzhou.com/posts/Go/go_rabbitmq_tutorials_05/)
+
+- [RabbitMQ Go客户端教程6——RPC（翻译）](https://www.liwenzhou.com/posts/Go/go_rabbitmq_tutorials_06/)
